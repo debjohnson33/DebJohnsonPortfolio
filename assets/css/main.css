@@ -2234,13 +2234,16 @@
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
-		columns: 2;
 	}
 
 		ul li {
 			padding-left: 0.5em;
 			text-align: left;
 			list-style: none;
+		}
+
+		ul.tech-list {
+			columns: 2;
 		}
 
 		ul.alt {
