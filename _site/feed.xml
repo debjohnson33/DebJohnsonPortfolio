@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-09T16:19:29-05:00</updated><id>/</id><entry><title type="html">React/Redux Final Project – Medications App</title><link href="/react_redux_final_project_medications_app" rel="alternate" type="text/html" title="React/Redux Final Project – Medications App" /><published>2018-02-13T14:29:48-06:00</published><updated>2018-02-13T14:29:48-06:00</updated><id>/react_redux_final_project_medications_app</id><content type="html" xml:base="/react_redux_final_project_medications_app">&lt;p&gt;As I look at the requirements list for this project, I am amazed that I was able to pull it all together. But, I also remembered that those who have gone before me did it, too. Wow, I finally made it to the end of this stage of learning. This project took me longer than I expected mostly because it combined so many different things that I had learned along the way. As I went through each of the lessons and labs for React and Redux, I understood those pieces of the puzzle individually. But putting it all together was a challenge. I chose a medications app as a way to bridge between my previous career as a medical assistant and my future career as a web developer. With this app, you can look at information on different medications and if you want, you can give a review which includes a rating and comment.&lt;/p&gt;
+
+&lt;p&gt;Building the API was like getting a refresher on Ruby after doing Javascript for awhile, but then I had to make sure it would respond to fetch requests. Since I use a virtual box with a Linux-based elementaryOS installed, I searched and found Insomnia to use to test my GET and POST requests. For some reason, it seemed like it worked better for me than Postman. Once I was sure I could retrieve and post to my API endpoints, I started working on my front end.&lt;/p&gt;
+
+&lt;p&gt;Incorporating Redux with React was the hardest part for me to get my head around. I spent many hours watching videos, going back to lessons, and referring to other people’s projects on GitHub until I was able to understand it and apply what I learned to my own app. Now, each component works together with the Redux store to render what the user wants onto the screen. To get this to happen, there are a few different files that have to be in place. The actions have to be called properly and have to match up to one of the actions listed in the respective reducers switch statement. You also have to list the reducer properly in the combineReducers function for it to be in the Redux store. If your reducer is called medicationsReducer, then if you want your prop to be called medications, you have to explicitly list it as “medications: medicationsReducer” in your combineReducers or it will not work.&lt;/p&gt;
+
+&lt;p&gt;An example of how Redux works is when a user clicks on Medications in my app, There is a fetchMedications function that is called in the componentDidMount function. The fetchMedications function, in turn, calls a fetch to my API URL and when it receives a response, it dispatches the medicationsFetchDataSuccess action with the medications object as a payload. The action “MEDICATIONS_FETCH_DATA_SUCCESS” then triggers the medicationsReducer to return the medications. So when all of this is done, the connect function in the MedicationsPage component recognizes that this change in state has occurred and because of the mapStateToProps function and fetchMedications function (automatically mapping dispatch to Props), the medications object is added as a prop and the screen renders the list of medications.&lt;/p&gt;
+
+&lt;p&gt;The Learn Video Lectures React section was one of the resources I used a lot, but there was also the free tutorials by Dan Abramov, Getting Started with Redux, &lt;a href=&quot;http://&quot;&gt;https://egghead.io/courses/getting-started-with-redux&lt;/a&gt; and Building React Applications with Idiomatic Redux, &lt;a href=&quot;http://&quot;&gt;https://egghead.io/courses/building-react-applications-with-idiomatic-redux&lt;/a&gt;.  Another resource that was useful was &lt;a href=&quot;http://&quot;&gt;http://javascript.tutorialhorizon.com/2014/09/21/installing-listing-and-uninstalling-packages-using-npm/&lt;/a&gt; that gives helpful information about listing the dependencies in your project as well as uninstalling packages that you decided not to use.&lt;/p&gt;
+
+&lt;p&gt;One of the best things I learned in building this app is that you have to pay attention to exactly what is in your Redux store using the dev_tools. If I had looked carefully at it, I would have seen my problem right away and not spent a few days trying to fix something in the React side that had really originated in my API serializer! (If you want an attribute of your model to be able to come through in your JSON object, you have to list it!)&lt;/p&gt;</content><author><name></name></author><summary type="html">As I look at the requirements list for this project, I am amazed that I was able to pull it all together. But, I also remembered that those who have gone before me did it, too. Wow, I finally made it to the end of this stage of learning. This project took me longer than I expected mostly because it combined so many different things that I had learned along the way. As I went through each of the lessons and labs for React and Redux, I understood those pieces of the puzzle individually. But putting it all together was a challenge. I chose a medications app as a way to bridge between my previous career as a medical assistant and my future career as a web developer. With this app, you can look at information on different medications and if you want, you can give a review which includes a rating and comment.</summary></entry><entry><title type="html">Rails/jQuery Project – Farm Tracker</title><link href="/rails_jquery_project_farm_tracker" rel="alternate" type="text/html" title="Rails/jQuery Project – Farm Tracker" /><published>2017-10-31T17:19:02-05:00</published><updated>2017-10-31T17:19:02-05:00</updated><id>/rails_jquery_project_farm_tracker</id><content type="html" xml:base="/rails_jquery_project_farm_tracker">&lt;p&gt;This is a continuation of my Rails project, just with some jQuery added to it, so the original models, etc. are all the same. A user can have many farms, farms have many areas, and areas have many animals. A farm also has many animals through areas. The first requirement that I did was to add an “on click” handler to a farm’s page to show a list, or index, of the farm’s animals within a div so the page would not need to be refreshed. At first I used a $.ajax request to do this because I was still trying to wrap my brain around the $.get. Listing the animals also revealed a “has-many,” or at least a “has-many, through” relationship to satisfy that requirement.&lt;/p&gt;
+
+&lt;p&gt;This seemed way too simple to me, so I added another handler to my “Farms” link at the top of my page to render the index of farms. As I worked through the project, I became more familiar with how to use the handlers and render what I wanted on the page. Another requirement was to render at least one show page, so I did that with the farm’s areas. I was able to do this and put a next button to show the user the next area. This would be something that I would improve on in a later version with a “previous” button.&lt;/p&gt;
+
+&lt;p&gt;Next I tackled the idea of translating the JSON responses into Javascript Model Objects. This is actually not as complicated as it first sounded when reading it. In each js file, I wrote a constructor function for that particular model. This gave the ability to instantiate a new instance of that model (let newFarm = new Farm(attributes)) using the data retrieved from the json object so that you can take that data and format it to render it. That’s where the other part of this requirement came in. The use of a prototype method. Each prototype method allowed the use of “this” in the formatting of the data from that particular instance to be able to render it to look like your original html page.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Farm.prototype.formatIndex = function() {
+	let farmHtml = `
+		&amp;lt;a href=&quot;/farms/${this.id}&quot; data-id=${this.id} class=&quot;show_link&quot;&amp;gt;${this.name}&amp;lt;/a&amp;gt;&amp;lt;br&amp;gt;		
+	`
+	return farmHtml
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A couple of things to note about these model objects. The attributes that you want to be able to use to render the page need to be listed in that model’s serializer. So when I went to render my animal show page, I had to go back to my animal serializer and make sure everything was listed instead of just a few items. This allows you to customize what you do or don’t want to render.&lt;/p&gt;
+
+&lt;p&gt;Last, but not least, was creating a resource and rendering the response with a refresh. This was a little different, but still similar to using $.get. Instead, I used $.post and passed in what was required. I had to read about this in the docs and do things step by step, but once I did, it worked well and I was able to create a new entry in the database.&lt;/p&gt;
+
+&lt;p&gt;I definitely had to get used to using either console.log or debugger, or both to get through each part of the process and know what each variable and “this” was representing. Also, I watched through some of the videos by Avi and the Rails jQuery Office hours from May 11, 2017 on the Learn Video Lecture website: [http://instruction.learn.co/video_lectures/146] to help with review and making sure I understood.&lt;/p&gt;</content><author><name></name></author><summary type="html">This is a continuation of my Rails project, just with some jQuery added to it, so the original models, etc. are all the same. A user can have many farms, farms have many areas, and areas have many animals. A farm also has many animals through areas. The first requirement that I did was to add an “on click” handler to a farm’s page to show a list, or index, of the farm’s animals within a div so the page would not need to be refreshed. At first I used a $.ajax request to do this because I was still trying to wrap my brain around the $.get. Listing the animals also revealed a “has-many,” or at least a “has-many, through” relationship to satisfy that requirement.</summary></entry><entry><title type="html">Rails Project - Farm Tracker</title><link href="/2017/08/03/rails_project_-_farm_tracker.html" rel="alternate" type="text/html" title="Rails Project - Farm Tracker" /><published>2017-08-03T14:25:36-05:00</published><updated>2017-08-03T14:25:36-05:00</updated><id>/2017/08/03/rails_project_-_farm_tracker</id><content type="html" xml:base="/2017/08/03/rails_project_-_farm_tracker.html">&lt;p&gt;When I started my rails project I did the usual writing out what I wanted to do detailing the associations between the models/tables. This app idea comes from a need to keep track of the animals that we have on our property. We have 3 different types of animals in 4 different areas. So, for the app, I wanted a user to be able to have many farms. Each farm can have many areas and many animals through areas. To check it out on Heroku: &lt;a href=&quot;http://&quot;&gt;https://farm-tracker.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of this was similar to the labs and projects of the rails section except for writing a custom attributes equals method. This part led to many hours each day trying to figure out the right way to do it for my app and not have validation errors. There are many different ways to write this method, but what I did was write the “vanilla” attributes method and then separate the uses of the params in the farms controller using an if statement to check to see if the action was new/create versus edit/update. This is what it looked like:&lt;/p&gt;
+
+&lt;p&gt;In /models/farm.rb:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	def areas_attributes=(areas_attributes)
+		areas_attributes.each do |i, area_attributes|
+			self.areas.build(area_attributes)
+		end
+	end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In /controllers/farms_controller.rb&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def farm_params
+		if params[:action] == &quot;new&quot; || params[:action] == &quot;create&quot;
+			params.require(:farm).permit(
+				:name,
+				:user_id, 
+				:areas_attributes =&amp;gt; [
+					:id,
+					:name, 
+					:area_type,
+					:capacity, 
+					:quantity,
+					:farm_id
+				]
+			)
+		else
+			params.require(:farm).permit(:name, :user_id)
+		end
+	end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Since I have different farm params for the update action, it allows you to update just the farm name. In doing this, I also changed the edit view for farm to only have fields for farm. I already had an area edit page, so this did not affect the ability to edit areas. The user just goes to the area show page of the area they want to edit and do it there.&lt;/p&gt;
+
+&lt;p&gt;In my searching, I also found a different custom nested attributes method. It allows you to save a farm without filling out the area fields using the delete_if, but when you go to edit/update the farm, it tries to insert the same areas into the database instead of updating them which leads to an SQL error.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def areas_attributes=(areas_attributes)
+	areas_attributes.delete_if { |_i, h| h.any? { |_k, v| v.empty? } }
+	areas_attributes.values.each { |area| areas.build(area) }
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The bottom line on the attributes equals method is that you have to look at your situation and figure out what you want your app to be able to do. For me, I didn’t want a “find or create by” in my method because in real life a farm could have more than one area for the same type of animal so I wanted to be able to have 2 different goat pens if the user has them.&lt;/p&gt;
+
+&lt;p&gt;Something else that was a change for me was that I learned how to deploy to Heroku. This was a challenge in itself making sure that everything was edited to be compatible. Once you follow the directions on their site, it is easy to make sure it is up to date with a git command that’s similar to what we use for GitHub. You just have to do a push to both Heroku and GitHub each time you change something.&lt;/p&gt;
+
+&lt;p&gt;There are a lot of other things I learned in developing this app, but I don’t think there’s enough room to put it all in this blog. If anything, I’m happy that I took the extra time to learn how to add some Bootstrap styling and deploy to Heroku because now I can show my hard work to people that don’t know what forking and cloning are!  :)&lt;/p&gt;
+
+&lt;p&gt;To get started on Heroku: https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction
+Once you have an app started and have followed all the steps in the getting started:
+https://www.codecademy.com/articles/deploy-rails-to-heroku&lt;/p&gt;
+
+&lt;p&gt;If you forgot to put your app name when typing in heroku create, you can follow these directions to change the name: https://coderwall.com/p/y5rtzq/created-a-heroku-app-but-i-want-to-change-the-name-now 
+Note: Step 4 in changing the name process should be “git remote add heroku http://git.heroku.com/your-app-name-here.git It should match what it says in your Heroku app settings tab&lt;/p&gt;</content><author><name></name></author><summary type="html">When I started my rails project I did the usual writing out what I wanted to do detailing the associations between the models/tables. This app idea comes from a need to keep track of the animals that we have on our property. We have 3 different types of animals in 4 different areas. So, for the app, I wanted a user to be able to have many farms. Each farm can have many areas and many animals through areas. To check it out on Heroku: https://farm-tracker.herokuapp.com/</summary></entry><entry><title type="html">Rails ActionView Form Helper Methods – form_tag and form_for</title><link href="/2017/06/29/rails_actionview_form_helper_methods_form_tag_and_form_for.html" rel="alternate" type="text/html" title="Rails ActionView Form Helper Methods – form_tag and form_for" /><published>2017-06-29T12:03:54-05:00</published><updated>2017-06-29T12:03:54-05:00</updated><id>/2017/06/29/rails_actionview_form_helper_methods_form_tag_and_form_for</id><content type="html" xml:base="/2017/06/29/rails_actionview_form_helper_methods_form_tag_and_form_for.html">&lt;p&gt;As I have progressed through Rails lessons, I’ve noticed that there are lots of methods that are being used to do various things such as generating HTML for forms. Form helpers like form_tag and form_for help with building different forms. Sometimes I just start to use methods like this in the labs without completely understanding what they do, so I decided to review the information about them.  The form_tag method allows for building a form without the need for a model or database table. The form_tag is for when you need a search field or a form that doesn’t save or update to the database.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;%= form_tag (sessions_path) do %&amp;gt;
+
+	&amp;lt;%= label_tag 'email', 'Email' %&amp;gt;
+	&amp;lt;%= text_field_tag 'email' %&amp;gt;
+
+	&amp;lt;%= label_tag 'password', 'Password' %&amp;gt;
+	&amp;lt;%= password_field_tag 'password' %&amp;gt;
+
+	&amp;lt;%= submit_tag &quot;Sign In&quot;%&amp;gt;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The form_for is a little more abstract than the form_tag method and knows things automatically. It makes assumptions about what you want based on the instance of the model that is passed into it and automatically knows what route using RESTful conventions.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;%= form_for(@post) do |f| %&amp;gt;
+	&amp;lt;label&amp;gt;Post title:&amp;lt;/label&amp;gt;&amp;lt;br&amp;gt;
+	&amp;lt;%= f.text_field :title %&amp;gt;&amp;lt;br&amp;gt;
+	 
+	&amp;lt;label&amp;gt;Post description&amp;lt;/label&amp;gt;&amp;lt;br&amp;gt;
+	&amp;lt;%= f.text_area :description %&amp;gt;&amp;lt;br&amp;gt;
+  
+  	&amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When deciding between these two, the form_for method is better when when you need the form to be connected to a model. An example would be a user profile edit form used to edit a users profile in the database. In order for the form_for to work, there has to be a table in the database and a model. There also needs to be proper routes in the config/routes.rb file and in the proper controller for the model. As in the above example, @post would need to be defined in the PostsController.&lt;/p&gt;
+
+&lt;p&gt;Here are a few references that were helpful in understanding these two helper methods.&lt;/p&gt;
+
+&lt;p&gt;https://indyarock.wordpress.com/2013/09/08/difference-between-form_for-and-form_tag-with-example-in-rails/&lt;/p&gt;
+
+&lt;p&gt;https://agilewarrior.wordpress.com/2011/09/10/difference-between-form_for-and-form_tag-helper-tags-in-rails/&lt;/p&gt;
+
+&lt;p&gt;http://travisje.github.io/blog/2015/07/13/form_for/&lt;/p&gt;</content><author><name></name></author><summary type="html">As I have progressed through Rails lessons, I’ve noticed that there are lots of methods that are being used to do various things such as generating HTML for forms. Form helpers like form_tag and form_for help with building different forms. Sometimes I just start to use methods like this in the labs without completely understanding what they do, so I decided to review the information about them. The form_tag method allows for building a form without the need for a model or database table. The form_tag is for when you need a search field or a form that doesn’t save or update to the database.</summary></entry><entry><title type="html">Sinatra Content Management System Project</title><link href="/2017/06/12/sinatra_content_management_system_project.html" rel="alternate" type="text/html" title="Sinatra Content Management System Project" /><published>2017-06-12T13:27:37-05:00</published><updated>2017-06-12T13:27:37-05:00</updated><id>/2017/06/12/sinatra_content_management_system_project</id><content type="html" xml:base="/2017/06/12/sinatra_content_management_system_project.html">&lt;p&gt;This time around, I felt more prepared to do a project. I had just finished working on the last Sinatra labs and projects in the section, so I was much more comfortable with the idea of building a CRUD app. CRUD stands for Create, Read, Update, and Delete, which are the main functions that a CRUD app should be able to do. At first I was tempted to do something related to my favorite hobby, knitting, but I figured that was narrowing my potential user range. So I decided on a simple parts content management system which I have wanted to do for my husband’s small business. With this system, a user can sign up, or login if they’re a current user, and add parts to a simple sqlite3 database. Then, as the user needs to, they can add more parts, edit/update specifics for individual parts, and delete parts. It is built in a generic way so the parts could be for anything from auto parts to airplane parts to lawnmower parts, etc. As long as you have the name of the part, the serial number, manufacturer, and quantity that you have on hand, you can add a part to your database.&lt;/p&gt;
+
+&lt;p&gt;A few things that I learned during this process are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should really write out and diagram your table relationships and all of your model relationships before trying to start your migrations. Having it all there to reference will help tremendously and you will be ready for the next step easier and faster.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If your associations between your models are not set up/written correctly, your experimenting in Pry or Tux will not be that successful. It doesn’t “just work” like it does for Avi in the videos if the foundation isn’t laid correctly. You will have a hard time figuring out what to put into your routes and your “Views” to get the app to display what you want. The belongs_to, has_many, and has_many through can work for you, but you have to completely understand what they do for you and how they relate to your own models.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you want to add a CSS stylesheet to your project, you’ll need to add a public folder for it to go in or Sinatra will NOT acknowledge that it’s there. Or, you can specify a different location by setting it in your Application Controller. The websites below helped me understand this so I could add some color and a little bit of formatting to my layout.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;https://medium.com/@kerenlerner/how-to-include-images-css-and-or-javascript-in-your-sinatra-web-application-45e2ebbfa75f&lt;/p&gt;
+
+&lt;p&gt;https://www.davidwparker.com/2009/11/13/sinatra-base-static-file-issue/&lt;/p&gt;</content><author><name></name></author><summary type="html">This time around, I felt more prepared to do a project. I had just finished working on the last Sinatra labs and projects in the section, so I was much more comfortable with the idea of building a CRUD app. CRUD stands for Create, Read, Update, and Delete, which are the main functions that a CRUD app should be able to do. At first I was tempted to do something related to my favorite hobby, knitting, but I figured that was narrowing my potential user range. So I decided on a simple parts content management system which I have wanted to do for my husband’s small business. With this system, a user can sign up, or login if they’re a current user, and add parts to a simple sqlite3 database. Then, as the user needs to, they can add more parts, edit/update specifics for individual parts, and delete parts. It is built in a generic way so the parts could be for anything from auto parts to airplane parts to lawnmower parts, etc. As long as you have the name of the part, the serial number, manufacturer, and quantity that you have on hand, you can add a part to your database.</summary></entry><entry><title type="html">Knitting CLI - My Data Gem Project</title><link href="/2017/05/12/knitting_cli_-_my_data_gem_project.html" rel="alternate" type="text/html" title="Knitting CLI - My Data Gem Project" /><published>2017-05-12T19:41:04-05:00</published><updated>2017-05-12T19:41:04-05:00</updated><id>/2017/05/12/knitting_cli_-_my_data_gem_project</id><content type="html" xml:base="/2017/05/12/knitting_cli_-_my_data_gem_project.html">&lt;p&gt;At first, when I opened up the page for this project, I felt overwhelmed. I started wondering, “Am I sure I’m cut out to be a programmer? This is going to be a hard project.” After reading everything, I did some brainstorming by myself and with my husband to try to figure out what I wanted to do. This is an important part of the process because you should be scraping a website or websites with some kind of topic that you’re interested in and not something you think is boring. Though my husband knows a lot of things that I like and my hobbies, he doesn’t understand some of the programming aspects to be able to know if something would really work. I ended up picking my favorite hobby, knitting.&lt;/p&gt;
+
+&lt;p&gt;I looked over the example projects that were in the lesson and watched a walk-through video over and over before really getting started. As Avi did in the video, I took a few minutes to open up a notes file and just type out what the program should do and what I thought the user input and the output would look like. Then I did some searching on Google, chose the website Yarnspirations.com to do my scraping from, and got to work. It was challenging to find the right CSS classes or id’s to be able to get to exactly what was needed for each piece. It was definitely an organic process, doing one by one until they were all done. I ended up not including one of the items I wanted to because the html for the site did not have text or alternate text on the image, but it was not a crucial part. After finishing, I was encouraged by the fact that I had worked my way through the project and was able to do it.&lt;/p&gt;</content><author><name></name></author><summary type="html">At first, when I opened up the page for this project, I felt overwhelmed. I started wondering, “Am I sure I’m cut out to be a programmer? This is going to be a hard project.” After reading everything, I did some brainstorming by myself and with my husband to try to figure out what I wanted to do. This is an important part of the process because you should be scraping a website or websites with some kind of topic that you’re interested in and not something you think is boring. Though my husband knows a lot of things that I like and my hobbies, he doesn’t understand some of the programming aspects to be able to know if something would really work. I ended up picking my favorite hobby, knitting.</summary></entry><entry><title type="html">Tap What With What?</title><link href="/2017/05/04/tap_what_with_what.html" rel="alternate" type="text/html" title="Tap What With What?" /><published>2017-05-04T18:57:15-05:00</published><updated>2017-05-04T18:57:15-05:00</updated><id>/2017/05/04/tap_what_with_what</id><content type="html" xml:base="/2017/05/04/tap_what_with_what.html">&lt;p&gt;I have seen #tap being used by Avi during videos and in the solution to some of the labs and I only somewhat understood what it is really doing. Sometimes I feel that I need more explanation than the Ruby docs can give and I feel like some of the answers on Stack Overflow are over my head or they just give the answer and really don’t explain what the method is doing. So I did some searching and found a couple of websites that were useful. On the See John Code blog, he shows what the code is behind the #tap method:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;VALUE rb_obj_tap(VALUE obj)
+{
+  rb_yield(obj);
+  return obj;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This reveals that #tap is taking in an object as an argument, yielding the object to the block and then returning the object.&lt;/p&gt;
+
+&lt;p&gt;In Ruby code, it looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Object
+  def tap
+    yield self
+    self
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This means that #tap is a way to do something with an object inside a block of code and have it return the object itself. This is useful when you want to avoid what some of the other methods return. For example, #each returns the original array. This is helpful if you are dealing with a hash and need the hash returned. An example from Engine Yard’s blog:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def update_params(params) 
+	params[:foo] = 'bar' 
+	params 
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Instead of needing to put the “params” at the end to ensure we get the hash as the return, we can use #tap:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def update_params(params) 
+	params.tap {|p| p[:foo] = 'bar' } 
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There are more examples of use, but seeing the code behind it “translated” into Ruby and some ways that it can be used really helped me understand the concept to be able to use it in future coding.&lt;/p&gt;
+
+&lt;p&gt;Resources:&lt;/p&gt;
+
+&lt;p&gt;http://seejohncode.com/2012/01/02/ruby-tap-that&lt;/p&gt;
+
+&lt;p&gt;https://blog.engineyard.com/2015/five-ruby-methods-you-should-be-using&lt;/p&gt;</content><author><name></name></author><summary type="html">I have seen #tap being used by Avi during videos and in the solution to some of the labs and I only somewhat understood what it is really doing. Sometimes I feel that I need more explanation than the Ruby docs can give and I feel like some of the answers on Stack Overflow are over my head or they just give the answer and really don’t explain what the method is doing. So I did some searching and found a couple of websites that were useful. On the See John Code blog, he shows what the code is behind the #tap method:</summary></entry><entry><title type="html">Why did I decide to do software development?</title><link href="/2017/04/15/why_did_i_decide_to_do_software_development.html" rel="alternate" type="text/html" title="Why did I decide to do software development?" /><published>2017-04-15T09:24:46-05:00</published><updated>2017-04-15T09:24:46-05:00</updated><id>/2017/04/15/why_did_i_decide_to_do_software_development</id><content type="html" xml:base="/2017/04/15/why_did_i_decide_to_do_software_development.html">&lt;p&gt;I have been programming on and off for about 30 years now. I remember using my mom’s Atari back in 1987 to write little programs in BASIC that printed things out on the screen, and I just thought that was the coolest thing in the world! I really enjoyed every time I was able to learn more about programming while I took my college classes for my Associates and Bachelors. In my Master’s program, there wasn’t much about programming (hindsight being 20/20 that should’ve been a clue to me that I needed to be in a different program). After working 20 years in the medical field, I knew I wanted to do something that involved computers, and that was why I took the computer related degrees.&lt;/p&gt;
+
+&lt;p&gt;I like the idea of being able to tell the computer to do something, using the right language, and it does it. It is similar to my hobby of knitting in that you get a pattern and repeat the same instructions over and over until you have a finished product and if you want something different, you change how you do certain parts of it. I like seeing the results of what I’ve worked on and being able to manipulate certain lines of code to have different results just like in my knitting projects.&lt;/p&gt;
+
+&lt;p&gt;Programming has been in the back of my mind all along, so when I found Flatiron School’s Bootcamp Prep, I was excited about the possibilities. I was able to remember a lot of the JavaScript from learning it on Khan Academy in the last year, so I was done with a good chunk of it when I learned that I would be accepted to the Full Stack Web Development program. I also felt really honored that I would be chosen to receive a 50% scholarship through the Women Take Tech Initiative. I am highly motivated to make everyone proud of me by doing excellent work as I go through this program. Not just that, but I’m happy to get the skills necessary to get a job and be able to enjoy and be passionate about what I’m doing.&lt;/p&gt;</content><author><name></name></author><summary type="html">I have been programming on and off for about 30 years now. I remember using my mom’s Atari back in 1987 to write little programs in BASIC that printed things out on the screen, and I just thought that was the coolest thing in the world! I really enjoyed every time I was able to learn more about programming while I took my college classes for my Associates and Bachelors. In my Master’s program, there wasn’t much about programming (hindsight being 20/20 that should’ve been a clue to me that I needed to be in a different program). After working 20 years in the medical field, I knew I wanted to do something that involved computers, and that was why I took the computer related degrees.</summary></entry></feed>
