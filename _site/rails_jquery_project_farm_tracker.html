@@ -1,4 +1,56 @@
-<p>This is a continuation of my Rails project, just with some jQuery added to it, so the original models, etc. are all the same. A user can have many farms, farms have many areas, and areas have many animals. A farm also has many animals through areas. The first requirement that I did was to add an “on click” handler to a farm’s page to show a list, or index, of the farm’s animals within a div so the page would not need to be refreshed. At first I used a $.ajax request to do this because I was still trying to wrap my brain around the $.get. Listing the animals also revealed a “has-many,” or at least a “has-many, through” relationship to satisfy that requirement.</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Deb Johnson Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav id="menu">
+    <div class="inner">
+        <h2>Menu</h2>
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="elements.html">Elements</a></li>
+        </ul>
+        <a href="#" class="close">Close</a>
+    </div>
+</nav>
+
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Rails/jQuery Project – Farm Tracker</h1>
+                    
+                    <span class="meta">Posted by  on October 31, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>This is a continuation of my Rails project, just with some jQuery added to it, so the original models, etc. are all the same. A user can have many farms, farms have many areas, and areas have many animals. A farm also has many animals through areas. The first requirement that I did was to add an “on click” handler to a farm’s page to show a list, or index, of the farm’s animals within a div so the page would not need to be refreshed. At first I used a $.ajax request to do this because I was still trying to wrap my brain around the $.get. Listing the animals also revealed a “has-many,” or at least a “has-many, through” relationship to satisfy that requirement.</p>
 
 <p>This seemed way too simple to me, so I added another handler to my “Farms” link at the top of my page to render the index of farms. As I worked through the project, I became more familiar with how to use the handlers and render what I wanted on the page. Another requirement was to render at least one show page, so I did that with the farm’s areas. I was able to do this and put a next button to show the user the next area. This would be something that I would improve on in a later version with a “previous” button.</p>
 
@@ -17,3 +69,81 @@
 <p>Last, but not least, was creating a resource and rendering the response with a refresh. This was a little different, but still similar to using $.get. Instead, I used $.post and passed in what was required. I had to read about this in the docs and do things step by step, but once I did, it worked well and I was able to create a new entry in the database.</p>
 
 <p>I definitely had to get used to using either console.log or debugger, or both to get through each part of the process and know what each variable and “this” was representing. Also, I watched through some of the videos by Avi and the Rails jQuery Office hours from May 11, 2017 on the Learn Video Lecture website: [http://instruction.learn.co/video_lectures/146] to help with review and making sure I understood.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/08/03/rails_project_-_farm_tracker.html" data-toggle="tooltip" data-placement="top" title="Rails Project - Farm Tracker">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/react_redux_final_project_medications_app" data-toggle="tooltip" data-placement="top" title="React/Redux Final Project – Medications App">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <section id="footer">
+        <div class="inner">
+            <h2 class="major">Get in touch</h2>
+            <p></p>
+            <form method="post" action="https://formspree.io/friendswithdrj@gmail.com">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="4"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+            <ul class="contact">
+                <li class="fa-home">
+                    Deb Johnson<br />
+                    37 Water Ave<br />
+                    Pickensville, AL 35447-4048
+                </li>
+                <li class="fa-phone">(205) 399-1829</li>
+                <li class="fa-envelope"><a href="mailto:friendswithdrj@gmail.com">friendswithdrj@gmail.com</a></li>
+                <li class="fa-twitter"><a href="https://twitter.com/debjohnson33">twitter.com/@debjohnson33</a></li>
+                <li class="fa-facebook"><a href="https://www.facebook.com/debjohnson31">facebook.com/debjohnson31</a></li>
+                <li class="fa-github"><a href="https://github.com/debjohnson33">github.com/debjohnson33</a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Deb Johnson 2018. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+
+<!-- Scripts -->
+<script src="/js/skel.min.js " ></script>
+<script src="js/jquery.min.js "></script>
+<script src="js/jquery.scrollex.min.js "></script>
+<script src="js/util.js "></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="js/main.js "></script>
+
+</body>
+
+</html>
